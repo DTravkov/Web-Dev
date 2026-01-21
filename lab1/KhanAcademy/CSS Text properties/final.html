@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Project: Blog</title>
+    <style>
+        body {
+
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 120%;
+            background-color: #f0f8ff;
+
+        }
+
+
+        .posts {
+            background-color: #d7e9f8;
+            border-style: solid;
+            border-width: 0.1em;
+            border-color: rgb(150, 212, 186);
+            padding: 1.2em;
+            padding-top: 0em;
+            padding-bottom: 2em;
+            margin-bottom: 24px;
+        }
+
+        .posts h6 {
+            text-align: right;
+
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h6 {
+            line-height: 150%;
+        }
+
+        .contents {
+            border-style: inset;
+            line-height: 4px;
+            text-align: center;
+            margin-bottom: 2em;
+            border-width: 1px;
+            border-color: rgba(75, 183, 233, 0.411);
+        }
+
+        .top-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+
+        }
+
+        .top-bar-button-row {
+            display: flex;
+        }
+
+        .top-bar-button-row a {
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+
+        #dno {
+            text-align: end;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar" id="shapka">
+        <h1>Demid's blog</h1>
+        <div class="top-bar-button-row">
+            <h4>Go to : </h4>
+            <a href="#dno">
+                <h4>Bottom of the page</h4>
+            </a>
+        </div>
+
+
+    </div>
+
+
+    <div class="contents">
+
+        <h3>Contents</h3>
+        <a href="#first">
+            <h5>First post : Lorem Ipsum </h5>
+        </a>
+        <a href="#second">
+            <h5>Second post: Loerm Ipsum v2 </h5>
+        </a>
+        <a href="#third">
+            <h5>Third post: Lorem Ipsum v3 </h5>
+        </a>
+
+    </div>
+
+    <hr>
+
+    <div class="posts" id="first">
+
+        <div class="row">
+            <h2>First post</h2>
+            <h6>Posted on <br>20.02.2006</h6>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra. Aenean venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra. Aenean
+            venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem. </p>
+    </div>
+
+    <div class="posts" id="second">
+        <div class="row">
+            <h2>Second post</h2>
+            <h6>Posted on <br> 21.01.2026</h6>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra. Aenean venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra. Aenean
+            venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra.
+            Aenean venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem. </p>
+    </div>
+
+    <div class="posts" id="third">
+        <div class="row">
+            <h2>Third post</h2>
+            <h6>Posted on <br> 20.07.2077</h6>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra. Aenean venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra. Aenean
+            venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis imperdiet viverra.
+            Aenean venenatis
+            erat placerat sapien ultrices, at blandit metus vulputate. Aliquam elit ligula, tincidunt non metus sit
+            amet, gravida varius lacus. Nullam id lacus vitae nisl laoreet maximus non non est. Phasellus et lectus ut
+            erat finibus imperdiet. Morbi semper commodo maximus. Duis tortor felis, feugiat vel imperdiet non, vehicula
+            mollis sem. </p>
+    </div>
+
+    <div>
+        <br>
+        <a href="#shapka" id="dno">
+            <p>Return to top</p>
+        </a>
+    </div>
+
+</body>
+
+</html>
