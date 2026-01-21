@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Project: Event invite</title>
+    <style>
+        .main {
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(255, 255, 255);
+            font-weight: 200;
+            text-align: center;
+        }
+
+        .main hr {
+            color: red;
+        }
+
+        .img-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .img-card {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: 12px;
+
+        }
+
+        .img-card:hover {
+            background-color: rgba(93, 206, 226, 0.212);
+            border-radius: 10%;
+        }
+
+        .img-card .body {
+            border: rgb(139, 139, 214) solid 1px;
+            width: inline-block;
+            padding: 8px;
+            border-radius: 10%;
+        }
+
+        .img-card img {
+            aspect-ratio: 1;
+            width: 100%;
+            border-radius: 10%;
+        }
+
+        .img-card p {
+            text-align: center;
+            text-shadow: 30%;
+        }
+
+        .card {
+            width: 90%;
+            position: relative;
+            justify-content: center;
+            justify-self: center;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+
+        <h1>You're invited!</h1>
+        <hr>
+        <h3>To look at my html!</h3>
+        <hr>
+        <div class="img-bar">
+
+            <div class="img-card">
+                <div class="body">
+                    <img src="https://avatars.mds.yandex.net/i?id=e09df542f420a22ff71b62453c1ed00a_l-5232646-images-thumbs&n=13"
+                        alt="people partying">
+                    <hr>
+                    <p>Fun text!!!</p>
+
+                </div>
+            </div>
+
+            <div class="img-card">
+                <div class="body">
+                    <img src="https://avatars.mds.yandex.net/i?id=d5b9a2e6553bd75b1dc334a768d3d3bd_l-9882341-images-thumbs&n=13"
+                        alt="people partying">
+                    <hr>
+                    <p>Nice css design!</p>
+                </div>
+            </div>
+
+            <div class="img-card">
+                <div class="body">
+                    <img src="https://avatars.mds.yandex.net/i?id=b664d65eb365d8a5c89e0ad002324679_l-5549228-images-thumbs&n=13"
+                        alt="people partying">
+                    <hr>
+                    <p>Zero llm tolerance!!!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <img style="border-radius: 10%;"
+                src="https://static.vecteezy.com/system/resources/previews/070/667/571/non_2x/modern-abstract-blue-gradient-background-with-light-and-dark-smooth-tones-vector.jpg"
+                alt="">
+            <div class="overlay">i hope thats enough!</div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
