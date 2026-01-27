@@ -26,9 +26,10 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 70vh;
     background-color: rgba(242, 244, 247);
     gap: 80px;
+    padding-bottom: 112px;
+    padding-top: 108px;
 }
 
 
@@ -39,9 +40,9 @@ main {
 
 .logo-div img {
     min-width: 250px;
-    max-width: 360px;
+    max-width: 320px;
     padding: 0;
-    margin: -60px;
+    margin: -70px;
 }
 
 .logo-div p {
@@ -52,8 +53,8 @@ main {
 }
 
 .login-div {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 24px;
     padding-bottom: 10px;
     background-color: white;
@@ -110,7 +111,6 @@ button {
 
 a {
     text-decoration: none;
-    font-weight: 600;
     color: rgba(8, 102, 255);
 }
 
