@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    border-width: 1px;
+}
+
+body {
+    height: 100vh;
+}
+
+header {
+    background-color: rgb(22, 22, 22);
+    width: 100vw;
+    height: 72px;
+}
+
+.col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row-left-align {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.spacing-between {
+    justify-content: space-between;
+}
+
+#header-text {
+    padding: 0px 56px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.body-div {
+    margin-top: 60px;
+    width: 65vw;
+    gap: 28px;
+}
+
+
+.w100 {
+    width: 100%;
+}
+
+.max-content {
+    width: max-content;
+}
+
+form {
+    gap: 32px;
+    justify-content: space-evenly;
+}
+
+form>* {
+    padding: 8px 8px;
+    width: 100%;
+}
+
+form>input {
+    flex: 6;
+}
+
+form>button {
+    flex: 3;
+}
+
+#task-list-div {
+    padding: 0;
+    margin: 0px 16px;
+}
+
+.task-row {
+    padding: 20px 20px;
+    margin: 4px 0px;
+
+}
+
+.thin-outline {
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+input[type=checkbox] {
+    margin: 0px 8px;
+    transform: scale(1.2);
+}
+
+li>p {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 0px;
+    margin-left: 16px;
+}
+
+.delete-btn {
+    padding: 8px;
+}
