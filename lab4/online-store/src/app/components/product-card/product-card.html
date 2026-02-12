@@ -4,6 +4,12 @@
     <div class="img-container flex-col-center-baseline" (click)="increment()">
         <div class=" img-inner-container">
             <img [src]="this.product.images[currentImageId()]" [alt]="product.name">
+            <div class="overlay flex-col-center space-evenly">
+                @for (img of product.images; track img){
+                <img class="overlay-img" [src]="img" alt="">
+                }
+
+            </div>
         </div>
     </div>
     <hr class="sep">
@@ -22,11 +28,11 @@
 
     </div>
     <hr class="sep">
-    <div class="desc-container">
+    <a class="desc-container" [href]="this.product.link" target="_blank">
         <p class="truncated font14" [title]="product.description">
             {{product.description}}
         </p>
-    </div>
+    </a>
 
     <a class="share-btn flex-row-center" target="_blank" [href]="getWhatsappRedirectUrl()">
         <p class="font17">Share</p>
