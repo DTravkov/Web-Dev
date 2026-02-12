@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.flex-col.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-center-wrapped {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+app-product-card {
+    display: flex;
+    width: fit-content;
+}
+
+.body-text {
+    text-align: center;
+    padding: 80px 0px;
+}
+
+.outer-margin {
+    display: flex;
+
+    justify-content: space-around;
+}

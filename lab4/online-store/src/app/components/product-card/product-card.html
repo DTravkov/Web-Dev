@@ -1,0 +1,36 @@
+@if (product){
+<div class="card-container flex-col-center-baseline">
+
+    <div class="img-container flex-col-center-baseline" (click)="increment()">
+        <div class=" img-inner-container">
+            <img [src]="this.product.images[currentImageId()]" [alt]="product.name">
+        </div>
+    </div>
+    <hr class="sep">
+    <div class="price-container flex-row-center-baseline spacing-between">
+
+        <p class="font17">{{product.price + " KZT"}}</p>
+        <div class="rating-container flex-row-center-baseline">
+
+            <div class="rating-number">
+                <p class="center r10 font14">{{product.rating}}</p>
+            </div>
+            <img src="https://img.freepik.com/premium-vector/yellow-trendy-star-icon-white-background-isolated-vector-illustration_34480-1310.jpg"
+                alt="stars" class="star-icon">
+
+        </div>
+
+    </div>
+    <hr class="sep">
+    <div class="desc-container">
+        <p class="truncated font14" [title]="product.description">
+            {{product.description}}
+        </p>
+    </div>
+
+    <a class="share-btn flex-row-center" target="_blank" [href]="getWhatsappRedirectUrl()">
+        <p class="font17">Share</p>
+    </a>
+
+</div>
+}

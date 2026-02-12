@@ -1,0 +1,9 @@
+<h2 class="body-text">Тут могла быть ваша реклама.</h2>
+<div class="outer-margin">
+    <div class="flex-row-center-wrapped">
+
+        @for (p of productData; track p.id){
+        <app-product-card [product]="p"></app-product-card>
+        }
+    </div>
+</div>
