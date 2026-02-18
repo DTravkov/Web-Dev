@@ -1,0 +1,29 @@
+<div class="m48-horizontal">
+    <div class="p32-horizontal">
+        <div class="flex-row-centered">
+
+            <app-category-button [buttonText]="'Телефон'" [buttonOption]="'phone'"
+                (optionEvent)="handleOptionEvent($event)"></app-category-button>
+            <app-category-button [buttonText]="'Ноутбук'" [buttonOption]="'laptop'"
+                (optionEvent)="handleOptionEvent($event)"></app-category-button>
+
+        </div>
+    </div>
+
+
+    <div class="flex-row-centered p32-horizontal">
+        <hr class="m8-horizontal">
+    </div>
+
+    <div class="p32-horizontal">
+        <div class="flex-row-centered">
+            <app-category-button [buttonText]="'Дорогие'" [buttonOption]="'expensive'"
+                (optionEvent)="handleOptionEvent($event)"></app-category-button>
+            <app-category-button [buttonText]="'Бюджетные'" [buttonOption]="'budget'"
+                (optionEvent)="handleOptionEvent($event)"></app-category-button>
+            <app-category-button [buttonText]="'Дешевые'" [buttonOption]="'cheap'"
+                (optionEvent)="handleOptionEvent($event)"></app-category-button>
+        </div>
+    </div>
+
+</div>

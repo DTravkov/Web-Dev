@@ -1,0 +1,283 @@
+import { Product } from "../app/models/product.model";
+
+export const PRODUCTS: Product[] = [
+    {
+        "id": 1,
+        "name": "Apple iPhone 17 Pro Max 256Gb оранжевый",
+        "description": "Apple iPhone 17 Pro Max 256Gb — это воплощение инноваций и стиля, предлагающее безупречную производительность и непревзойденные возможности для тех, кто всегда в движении.",
+        "price": 787500,
+        "rating": 4.9,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p24/p88/64170090.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p24/p88/64170090.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/ped/p29/64476207.jpg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p41/p88/64170091.png?format=gallery-medium"
+        ],
+        "link": "https://kaspi.kz/shop/p/apple-iphone-17-pro-max-256gb-oranzhevyi-145468241/?c=750000000",
+        "category": {
+            id: 11,
+            name: "phone",
+            cost: "expensive",
+            manufacturer: "apple",
+        },
+        "likes": 0
+    },
+    {
+        "id": 2,
+        "name": "Смартфон Redmi A3x 3 ГБ/64 ГБ черный",
+        "description": "Смартфон Redmi A3x 3 ГБ/64 ГБ — это мощное устройство с высокой производительностью и стильным дизайном, которое идеально подходит для повседневного использования.",
+        "price": 39990,
+        "rating": 2.1,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/h83/h08/86585118720030.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/h83/h08/86585118720030.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/h9a/h1b/86584697651230.jpg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/hac/h2e/86584697683998.jpg?format=gallery-medium"
+        ],
+        "link": "https://kaspi.kz/shop/p/redmi-a3x-3-gb-64-gb-chernyi-121654928/?c=750000000",
+        "category": {
+            id: 13,
+            name: "phone",
+            cost: "cheap",
+            manufacturer: "redmi",
+        },
+        "likes": 0
+    },
+    {
+        "id": 3,
+        "name": "Смартфон Realme C71 6 ГБ/128 ГБ белый + подарок",
+        "description": "Realme C71 6 ГБ/128 ГБ — это мощный и стильный смартфон с впечатляющей автономностью и улучшенной защитой. В комплекте — беспроводные наушники Realme Buds T200 lite в подарок!",
+        "price": 74990,
+        "rating": 3.3,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p3a/p8a/44788849.jpeg?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p3a/p8a/44788849.jpeg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p6c/pcb/44788874.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/pfb/pca/44788870.png?format=gallery-medium"
+        ],
+        "link": "https://kaspi.kz/shop/p/realme-c71-6-gb-128-gb-belyi-podarok-140357227/",
+        "category": {
+            id: 12,
+            name: "phone",
+            cost: "budget",
+            manufacturer: "realme",
+        },
+        "likes": 0
+    },
+    {
+        "id": 4,
+        "name": "Смартфон Samsung Galaxy A26 5G 8 ГБ/256 ГБ зеленый",
+        "description": "Samsung Galaxy A26 5G — это мощный и стильный смартфон с поддержкой сетей пятого поколения, который станет вашим надёжным помощником в повседневной жизни.",
+        "price": 589900,
+        "rating": 4.5,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p4e/p53/30558289.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p4e/p53/30558289.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p2b/p56/30558294.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/pf3/p55/30558292.png?format=gallery-medium"
+
+        ],
+        "link": "https://kaspi.kz/shop/p/samsung-galaxy-a26-5g-8-gb-256-gb-zelenyi-137101301/?c=750000000",
+        "category": {
+            id: 11,
+            name: "phone",
+            cost: "expensive",
+            manufacturer: "samsung",
+        },
+        "likes": 0
+    },
+    {
+        "id": 5,
+        "name": "Смартфон Redmi A3x 3 ГБ/64 ГБ черный",
+        "description": "Смартфон Redmi A3x 3 ГБ/64 ГБ — это мощное устройство с высокой производительностью и стильным дизайном, которое идеально подходит для повседневного использования.",
+        "price": 39990,
+        "rating": 2.1,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/h83/h08/86585118720030.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/h83/h08/86585118720030.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/h9a/h1b/86584697651230.jpg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/hac/h2e/86584697683998.jpg?format=gallery-medium"
+        ],
+        "link": "https://kaspi.kz/shop/p/redmi-a3x-3-gb-64-gb-chernyi-121654928/?c=750000000",
+        "category": {
+            id: 13,
+            name: "phone",
+            cost: "cheap",
+            manufacturer: "redmi",
+        },
+        "likes": 0
+    },
+    {
+        "id": 6,
+        "name": "Смартфон Realme C71 6 ГБ/128 ГБ белый + подарок",
+        "description": "Realme C71 6 ГБ/128 ГБ — это мощный и стильный смартфон с впечатляющей автономностью и улучшенной защитой. В комплекте — беспроводные наушники Realme Buds T200 lite в подарок!",
+        "price": 74990,
+        "rating": 3.3,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p3a/p8a/44788849.jpeg?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p3a/p8a/44788849.jpeg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p6c/pcb/44788874.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/pfb/pca/44788870.png?format=gallery-medium"
+        ],
+        "link": "https://kaspi.kz/shop/p/realme-c71-6-gb-128-gb-belyi-podarok-140357227/",
+        "category": {
+            id: 12,
+            name: "phone",
+            cost: "budget",
+            manufacturer: "realme",
+        },
+        "likes": 0
+    },
+    {
+        "id": 7,
+        "name": "Apple iPhone 17 Pro Max 256Gb оранжевый",
+        "description": "Apple iPhone 17 Pro Max 256Gb — это воплощение инноваций и стиля, предлагающее безупречную производительность и непревзойденные возможности для тех, кто всегда в движении.",
+        "price": 787500,
+        "rating": 4.9,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p24/p88/64170090.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p24/p88/64170090.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/ped/p29/64476207.jpg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p41/p88/64170091.png?format=gallery-medium"
+        ],
+        "link": "https://kaspi.kz/shop/p/apple-iphone-17-pro-max-256gb-oranzhevyi-145468241/?c=750000000",
+        "category": {
+            id: 11,
+            name: "phone",
+            cost: "expensive",
+            manufacturer: "apple",
+        },
+        "likes": 0
+    },
+    {
+        "id": 8,
+        "name": "Смартфон Samsung Galaxy A26 5G 8 ГБ/256 ГБ зеленый",
+        "description": "Samsung Galaxy A26 5G — это мощный и стильный смартфон с поддержкой сетей пятого поколения, который станет вашим надёжным помощником в повседневной жизни.",
+        "price": 589900,
+        "rating": 4.5,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p4e/p53/30558289.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p4e/p53/30558289.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p2b/p56/30558294.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/pf3/p55/30558292.png?format=gallery-medium",
+
+        ],
+        "link": "https://kaspi.kz/shop/p/samsung-galaxy-a26-5g-8-gb-256-gb-zelenyi-137101301/?c=750000000",
+        "category": {
+            id: 11,
+            name: "phone",
+            cost: "expensive",
+            manufacturer: "samsung",
+        },
+        "likes": 0
+    },
+    {
+        "id": 9,
+        "name": "Смартфон Realme C71 6 ГБ/128 ГБ белый + подарок",
+        "description": "Realme C71 6 ГБ/128 ГБ — это мощный и стильный смартфон с впечатляющей автономностью и улучшенной защитой. В комплекте — беспроводные наушники Realme Buds T200 lite в подарок!",
+        "price": 74990,
+        "rating": 3.3,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p3a/p8a/44788849.jpeg?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p3a/p8a/44788849.jpeg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p6c/pcb/44788874.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/pfb/pca/44788870.png?format=gallery-medium"
+        ],
+        "link": "https://kaspi.kz/shop/p/realme-c71-6-gb-128-gb-belyi-podarok-140357227/",
+        "category": {
+            id: 12,
+            name: "phone",
+            cost: "budget",
+            manufacturer: "realme",
+        },
+        "likes": 0
+    },
+    {
+        "id": 10,
+        "name": "Смартфон Samsung Galaxy A26 5G 8 ГБ/256 ГБ зеленый",
+        "description": "Samsung Galaxy A26 5G — это мощный и стильный смартфон с поддержкой сетей пятого поколения, который станет вашим надёжным помощником в повседневной жизни.",
+        "price": 589900,
+        "rating": 4.5,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p4e/p53/30558289.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p4e/p53/30558289.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p2b/p56/30558294.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/pf3/p55/30558292.png?format=gallery-medium",
+
+        ],
+        "link": "https://kaspi.kz/shop/p/samsung-galaxy-a26-5g-8-gb-256-gb-zelenyi-137101301/?c=750000000",
+        "category": {
+            id: 11,
+            name: "phone",
+            cost: "expensive",
+            manufacturer: "samsung",
+        },
+        "likes": 0
+    },
+    {
+        "id": 11,
+        "name": 'Ноутбук Apple MacBook Air 13 2020 13.3" / 8 Гб / SSD 256 Гб / macOS / MGN63RU / A',
+        "description": "По скорости вычислений чип M1 превосходит все другие процессоры Apple. Такая производительность позволяет выполнять на MacBook Air самые ресурсоёмкие задачи, например редактировать фото и видео на профессиональном уровне или играть в игры со сложной графикой.",
+        "price": 408532,
+        "rating": 4.2,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/h06/h08/64213171568670.jpg?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/h06/h08/64213171568670.jpg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/h2d/h82/83648592183326.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/h0a/h85/64213178351646.jpg?format=gallery-medium",
+
+        ],
+        "link": "https://kaspi.kz/shop/p/apple-macbook-air-13-2020-13-3-8-gb-ssd-256-gb-macos-mgn63ru-a-101182724/?c=750000000",
+        "category": {
+            id: 21,
+            name: "laptop",
+            cost: "expensive",
+            manufacturer: "apple",
+        },
+        "likes": 0
+    },
+    {
+        "id": 12,
+        "name": 'Ноутбук Acer Aspire 3 15.6" / 8 Гб / SSD 256 Гб / Win 11 Pro / A325-45 / ZN.N01SI.03K.',
+        "description": "Ноутбук Acer Aspire 3 A325-45 с экраном 15.6 дюймов – отличное решение для работы и учебы. Выпущен в 2025 году, оснащен 8 ГБ оперативной памяти и быстрым SSD NVME на 256 ГБ. На устройстве предустановлены Windows 11 Pro, что позволяет сразу приступить к продуктивной работе",
+        "price": 165390,
+        "rating": 3.7,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/p24/pae/30100209.jpeg?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/p24/pae/30100209.jpeg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p24/pae/30100209.jpeg?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/p62/p4f/30100210.png?format=gallery-medium",
+
+        ],
+        "link": "https://kaspi.kz/shop/p/acer-aspire-3-15-6-8-gb-ssd-256-gb-win-11-pro-a325-45-zn-n01si-03k--136300221/?c=750000000",
+        "category": {
+            id: 22,
+            name: "laptop",
+            cost: "budget",
+            manufacturer: "acer",
+        },
+        "likes": 0
+    },
+    {
+        "id": 13,
+        "name": 'https://kaspi.kz/shop/p/great-asia-tk-e140-14-6-gb-ssd-256-gb-win-10-e140-06778-113521208/?c=750000000',
+        "description": "Great Asia TK-E140 — ноутбук для повседневных задач и работы на ходу. Компактный и функциональный, он сочетает в себе производительность и удобство, чтобы вы могли работать и отдыхать без ограничений.",
+        "price": 96498,
+        "rating": 3.0,
+        "image": "https://resources.cdn-kaspi.kz/img/m/p/pef/p15/78287034.png?format=gallery-medium",
+        "images": [
+            "https://resources.cdn-kaspi.kz/img/m/p/pef/p15/78287034.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/pef/p15/78287034.png?format=gallery-medium",
+            "https://resources.cdn-kaspi.kz/img/m/p/hba/hd2/85937374199838.jpg?format=gallery-medium",
+
+        ],
+        "link": "https://kaspi.kz/shop/p/great-asia-tk-e140-14-6-gb-ssd-256-gb-win-10-e140-06778-113521208/?c=750000000",
+        "category": {
+            id: 23,
+            name: "laptop",
+            cost: "cheap",
+            manufacturer: "great-asia",
+        },
+        "likes": 0
+    },
+];

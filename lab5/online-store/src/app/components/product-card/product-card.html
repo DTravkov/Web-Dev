@@ -1,0 +1,52 @@
+@if (product()){
+<div class="card-container flex-col-center-baseline">
+
+    <div class="img-container flex-col-center-baseline" (click)="increment()">
+        <div class=" img-inner-container">
+            <img [src]="this.product().images[currentImageId()]" [alt]="product().name">
+            <div class="overlay flex-col-center space-evenly">
+                @for (img of product().images; track img){
+                <img class="overlay-img" [src]="img" alt="">
+                }
+
+            </div>
+        </div>
+    </div>
+    <hr class="sep">
+    <div class="price-container flex-row-center-baseline spacing-between">
+
+        <p class="font17">{{product().price + " KZT"}}</p>
+        <div class="flex-row-center">
+            <div class="like-counter flex-row-center">
+                <p class="center r10 font14">{{this.likeCount()}}</p>
+                <img src="https://static.vecteezy.com/system/resources/previews/045/925/862/non_2x/red-heart-icon-free-png.png"
+                    alt="stars" class="star-icon">
+
+            </div>
+            <div class="rating-container flex-row-center-baseline">
+                <div class="rating-number">
+                    <p class="center r10 font14">{{product().rating}}</p>
+                </div>
+                <img src="https://img.freepik.com/premium-vector/yellow-trendy-star-icon-white-background-isolated-vector-illustration_34480-1310.jpg"
+                    alt="stars" class="star-icon">
+
+            </div>
+        </div>
+
+    </div>
+    <hr class="sep">
+    <a class="desc-container" [href]="this.product().link" target="_blank">
+        <p class="truncated font14" [title]="product().description">
+            {{product().description}}
+        </p>
+    </a>
+
+    <a class="share-btn flex-row-center" target="_blank" [href]="getWhatsappRedirectUrl()">
+        <p class="font17">Share</p>
+    </a>
+    <a class="share-btn flex-row-center" target="_blank" (click)="incrementLike()">
+        <p class="font17">Like</p>
+    </a>
+
+</div>
+}
