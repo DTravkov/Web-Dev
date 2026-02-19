@@ -11,7 +11,7 @@ export class ProductCard implements OnInit {
   product = input.required<Product>();
   currentImageId = signal(0);
   likeCount = signal<number>(0);
-  deleteEvent = output<number>();
+  deleteOutput = output<number>();
   ngOnInit() {
     this.likeCount.set(this.product().likes);
   }
@@ -21,6 +21,10 @@ export class ProductCard implements OnInit {
       newValue %= this.product().images.length;
       return newValue;
     });
+  }
+
+  deleteEvent() {
+    this.deleteOutput.emit(this.product().id);
   }
 
   incrementLike() {

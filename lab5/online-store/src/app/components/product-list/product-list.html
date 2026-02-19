@@ -2,12 +2,14 @@
     <div class="flex-row-center-wrapped">
 
         @for (p of products(); track p.id){
-        <app-product-card [product]="p"></app-product-card>
+        @if(p.visible){
+        <app-product-card [product]="p" (deleteOutput)="deleteEvent($event)"></app-product-card>
+        }
         }
 
         @if (this.products().length === 0){
         <h2>Товаров с данными фильтрами не существует.</h2>
         }
-        
+
     </div>
 </div>

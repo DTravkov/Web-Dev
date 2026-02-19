@@ -20,7 +20,8 @@ export const PRODUCTS: Product[] = [
             cost: "expensive",
             manufacturer: "apple",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 2,
@@ -41,7 +42,8 @@ export const PRODUCTS: Product[] = [
             cost: "cheap",
             manufacturer: "redmi",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 3,
@@ -62,7 +64,8 @@ export const PRODUCTS: Product[] = [
             cost: "budget",
             manufacturer: "realme",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 4,
@@ -84,7 +87,8 @@ export const PRODUCTS: Product[] = [
             cost: "expensive",
             manufacturer: "samsung",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 5,
@@ -105,7 +109,8 @@ export const PRODUCTS: Product[] = [
             cost: "cheap",
             manufacturer: "redmi",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 6,
@@ -126,7 +131,8 @@ export const PRODUCTS: Product[] = [
             cost: "budget",
             manufacturer: "realme",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 7,
@@ -147,7 +153,8 @@ export const PRODUCTS: Product[] = [
             cost: "expensive",
             manufacturer: "apple",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 8,
@@ -169,7 +176,8 @@ export const PRODUCTS: Product[] = [
             cost: "expensive",
             manufacturer: "samsung",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 9,
@@ -190,7 +198,8 @@ export const PRODUCTS: Product[] = [
             cost: "budget",
             manufacturer: "realme",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 10,
@@ -212,7 +221,8 @@ export const PRODUCTS: Product[] = [
             cost: "expensive",
             manufacturer: "samsung",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 11,
@@ -234,7 +244,8 @@ export const PRODUCTS: Product[] = [
             cost: "expensive",
             manufacturer: "apple",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 12,
@@ -256,7 +267,8 @@ export const PRODUCTS: Product[] = [
             cost: "budget",
             manufacturer: "acer",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
     {
         "id": 13,
@@ -278,6 +290,7 @@ export const PRODUCTS: Product[] = [
             cost: "cheap",
             manufacturer: "great-asia",
         },
-        "likes": 0
+        "likes": 0,
+        visible: true,
     },
 ];

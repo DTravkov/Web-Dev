@@ -11,4 +11,5 @@ export interface Product {
     link: string,
     likes: number,
     category: Category,
+    visible: boolean,
 }
