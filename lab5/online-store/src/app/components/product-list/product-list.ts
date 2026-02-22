@@ -4,10 +4,11 @@ import { PRODUCTS } from '../../../assets/products';
 import { Product } from '../../models/product.model';
 import { StorageService } from '../../services/storage-service';
 import { ProductService } from '../../services/product-service';
+import { CategoryMenu } from '../category-menu/category-menu';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCard],
+  imports: [ProductCard, CategoryMenu],
   templateUrl: `./product-list.html`,
   styleUrl: `./product-list.css`,
 })
@@ -20,12 +21,16 @@ export class ProductList {
   deleteProductForward = output<Product>();
   likeProductForward = output<Product>();
 
-  onDeleteProductForward(productInstance: Product) {
-    this.deleteProductForward.emit(productInstance);
+  filterProduct(filters: string[]) {
+    this.productService.filterProducts(filters);
   }
 
-  onLikeProductForward(productInstance: Product) {
-    this.likeProductForward.emit(productInstance);
+  likeProduct(productInstance: Product) {
+    this.productService.likeProduct(productInstance);
+  }
+
+  deleteProduct(productInstance: Product) {
+    this.storageService.remove(productInstance);
   }
 
 }
