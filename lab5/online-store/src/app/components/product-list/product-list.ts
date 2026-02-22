@@ -12,10 +12,10 @@ import { Product } from '../../models/product.model';
 export class ProductList {
   products = input.required<Product[]>();
 
-  deleteOutput = output<number>();
+  deleteProductForward = output<number>();
 
-  deleteEvent(productId: number) {
-    this.deleteOutput.emit(productId);
+  onDeleteProductForward(productId: number) {
+    this.deleteProductForward.emit(productId);
   }
 
 }

@@ -8,17 +8,19 @@ import { CategoryButton } from "../category-button/category-button";
   styleUrl: './category-menu.css',
 })
 export class CategoryMenu {
+
+
   filterList = signal<string[]>([]);
-  filterEvent = output<string[]>();
+
+  filtersChanged = output<string[]>();
 
   constructor() {
     effect(() => {
-      this.filterEvent.emit(this.filterList());
+      this.filtersChanged.emit(this.filterList());
     });
   }
 
   handleOptionEvent(eventName: string) {
-
     const filterName = eventName.split(':')[0];
     const eventType = eventName.split(':')[1];
 

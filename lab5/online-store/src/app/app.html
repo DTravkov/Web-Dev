@@ -1,3 +1,3 @@
 <app-navbar></app-navbar>
-<app-category-menu (filterEvent)="handleFilterEvent($event)"></app-category-menu>
-<app-product-list [products]="this.activeProducts()" (deleteOutput)="handleDeleteEvent($event)"></app-product-list>
+<app-category-menu (filtersChanged)="filterProduct($event)"></app-category-menu>
+<app-product-list [products]="this.activeProducts()" (deleteProductForward)="deleteProduct($event)"></app-product-list>

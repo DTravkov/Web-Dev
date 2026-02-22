@@ -1,7 +1,7 @@
 @if (product()){
 <div class="card-container flex-col-center-baseline">
 
-    <div class="img-container flex-col-center-baseline" (click)="increment()">
+    <div class="img-container flex-col-center-baseline" (click)="changeImage()">
         <div class=" img-inner-container">
             <img [src]="this.product().images[currentImageId()]" [alt]="product().name">
             <div class="overlay flex-col-center space-evenly">
@@ -47,7 +47,7 @@
     <a class="share-btn flex-row-center" target="_blank" (click)="incrementLike()">
         <p class="font17">Like</p>
     </a>
-    <a class="share-btn flex-row-center" target="_blank" (click)="deleteEvent()">
+    <a class="share-btn flex-row-center" target="_blank" (click)="onDeleteClicked()">
         <p class="font17">Delete</p>
     </a>
 

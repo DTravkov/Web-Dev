@@ -1,11 +1,8 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
 import { Navbar } from './components/navbar/navbar';
-import { PRODUCTS } from '../assets/products';
 import { CategoryMenu } from "./components/category-menu/category-menu";
-import { Product } from './models/product.model';
 import { ProductList } from "./components/product-list/product-list";
-import { filter } from 'rxjs';
+import { ProductService } from './services/product-service';
 
 @Component({
   selector: 'app-root',
@@ -16,32 +13,16 @@ import { filter } from 'rxjs';
 
 export class App {
   protected readonly title = signal('online-store');
+  service: ProductService = inject(ProductService);
 
-  allProducts = PRODUCTS;
+  activeProducts = this.service.activeProducts;
 
-  lastFilters: string[] = [];
-  deletedIds: number[] = [];
-
-  activeProducts = signal<Product[]>([]);
-
-  handleFilterEvent(filters: string[]) {
-    this.lastFilters = filters; // !-----
-    const filtered = this.allProducts.filter(prod => {
-      if (filters.every(filt => Object.values(prod.category).includes(filt))
-        && !this.deletedIds.includes(prod.id)) {
-        return true;
-      }
-      return false;
-    }
-    );
-    this.activeProducts.set(filtered);
+  filterProduct(filters: string[]) {
+    this.service.filterProducts(filters);
   }
 
-  handleDeleteEvent(productId: number) {
-    this.deletedIds.push(productId);
-    this.handleFilterEvent(this.lastFilters);
+  deleteProduct(productId: number) {
+    this.service.deleteProduct(productId);
   }
-
-
 
 }

@@ -9,13 +9,21 @@ import { Product } from '../../models/product.model';
 })
 export class ProductCard implements OnInit {
   product = input.required<Product>();
+
   currentImageId = signal(0);
   likeCount = signal<number>(0);
-  deleteOutput = output<number>();
+
+  deleteClicked = output<number>();
+
   ngOnInit() {
     this.likeCount.set(this.product().likes);
   }
-  increment() {
+
+  onDeleteClicked() {
+    this.deleteClicked.emit(this.product().id);
+  }
+
+  changeImage() {
     this.currentImageId.update((oldValue) => {
       let newValue = oldValue + 1;
       newValue %= this.product().images.length;
@@ -23,9 +31,6 @@ export class ProductCard implements OnInit {
     });
   }
 
-  deleteEvent() {
-    this.deleteOutput.emit(this.product().id);
-  }
 
   incrementLike() {
     this.likeCount.update(val => val + 1);

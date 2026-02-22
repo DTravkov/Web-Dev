@@ -3,7 +3,7 @@
 
         @for (p of products(); track p.id){
         @if(p.visible){
-        <app-product-card [product]="p" (deleteOutput)="deleteEvent($event)"></app-product-card>
+        <app-product-card [product]="p" (deleteClicked)="onDeleteProductForward($event)"></app-product-card>
         }
         }
 
