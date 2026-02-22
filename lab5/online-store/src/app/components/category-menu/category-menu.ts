@@ -30,6 +30,5 @@ export class CategoryMenu {
     if (eventType === 'off') {
       this.filterList.update(arr => arr.filter(x => x !== filterName));
     }
-
   }
 }

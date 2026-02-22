@@ -14,7 +14,8 @@ import { ProductService } from '../../services/product-service';
 export class ProductList {
   productService = inject(ProductService);
   storageService = inject(StorageService);
-  productsSignal = this.productService.filteredProductList;
+
+  productList = this.productService.getProductListSignal();
 
   deleteProductForward = output<Product>();
   likeProductForward = output<Product>();

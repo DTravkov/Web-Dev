@@ -1,6 +1,5 @@
 import { Component, input, signal, OnInit, output, effect, computed, inject } from '@angular/core';
 import { Product } from '../../models/product.model';
-import { StorageService } from '../../services/storage-service';
 import { ProductService } from '../../services/product-service';
 
 @Component({
@@ -13,7 +12,6 @@ export class ProductCard {
   product = input.required<Product>();
 
   productService = inject(ProductService);
-
 
   currentImageId = signal(0);
 

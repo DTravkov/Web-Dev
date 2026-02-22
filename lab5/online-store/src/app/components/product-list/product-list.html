@@ -1,14 +1,14 @@
 <div class="outer-margin">
     <div class="flex-row-center-wrapped">
 
-        @for (p of productsSignal(); track p.id){
+        @for (p of productList(); track p.id){
         @if(p.visible){
         <app-product-card [product]="p" (deleteClicked)="onDeleteProductForward($event)"
             (likeClicked)="onLikeProductForward($event)"></app-product-card>
         }
         }
 
-        @if (this.productsSignal().length === 0){
+        @if (this.productList().length === 0){
         <h2>Товаров с данными фильтрами не существует.</h2>
         }
 

@@ -8,7 +8,7 @@ import { PRODUCTS } from '../../assets/products';
 
 
 export class StorageService {
-  productList = signal<Product[]>(this.load());
+  private rawProductList = signal<Product[]>(this.load());
 
   load() {
     const data = localStorage.getItem('productList');
@@ -19,27 +19,31 @@ export class StorageService {
 
   }
   save() {
-    localStorage.setItem('productList', JSON.stringify(this.productList()))
+    localStorage.setItem('productList', JSON.stringify(this.rawProductList()))
   }
 
   restoreDefaults() {
-    this.productList.set([...PRODUCTS]);
+    this.rawProductList.set([...PRODUCTS]);
     this.save();
   }
 
   add(newProduct: Product) {
-    this.productList.update(arr => [...arr, newProduct]);
+    this.rawProductList.update(arr => [...arr, newProduct]);
     this.save();
   }
 
   remove(productToDelete: Product) {
-    this.productList.update(arr => arr.filter(prod => prod.id !== productToDelete.id));
+    this.rawProductList.update(arr => arr.filter(prod => prod.id !== productToDelete.id));
     this.save();
   }
 
   update(newProductList: Product[]) {
-    this.productList.set(newProductList);
+    this.rawProductList.set(newProductList);
     this.save();
+  }
+
+  getRawProductListSignal() {
+    return this.rawProductList;
   }
 
 }
