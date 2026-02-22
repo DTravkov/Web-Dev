@@ -1,7 +1,9 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { PRODUCTS } from '../../../assets/products';
 import { Product } from '../../models/product.model';
+import { StorageService } from '../../services/storage-service';
+import { ProductService } from '../../services/product-service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,12 +12,19 @@ import { Product } from '../../models/product.model';
   styleUrl: `./product-list.css`,
 })
 export class ProductList {
-  products = input.required<Product[]>();
+  productService = inject(ProductService);
+  storageService = inject(StorageService);
+  productsSignal = this.productService.filteredProductList;
 
-  deleteProductForward = output<number>();
+  deleteProductForward = output<Product>();
+  likeProductForward = output<Product>();
 
-  onDeleteProductForward(productId: number) {
-    this.deleteProductForward.emit(productId);
+  onDeleteProductForward(productInstance: Product) {
+    this.deleteProductForward.emit(productInstance);
+  }
+
+  onLikeProductForward(productInstance: Product) {
+    this.likeProductForward.emit(productInstance);
   }
 
 }

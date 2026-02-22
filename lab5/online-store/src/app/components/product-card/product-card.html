@@ -5,7 +5,7 @@
         <div class=" img-inner-container">
             <img [src]="this.product().images[currentImageId()]" [alt]="product().name">
             <div class="overlay flex-col-center space-evenly">
-                @for (img of product().images; track img){
+                @for (img of product().images; track getUniqueId()){
                 <img class="overlay-img" [src]="img" alt="">
                 }
 
@@ -18,7 +18,7 @@
         <p class="font17">{{product().price + " KZT"}}</p>
         <div class="flex-row-center">
             <div class="like-counter flex-row-center">
-                <p class="center r10 font14">{{this.likeCount()}}</p>
+                <p class="center r10 font14">{{this.productService.getLikesInfo(this.product())}}</p>
                 <img src="https://static.vecteezy.com/system/resources/previews/045/925/862/non_2x/red-heart-icon-free-png.png"
                     alt="stars" class="star-icon">
 
@@ -44,7 +44,7 @@
     <a class="share-btn flex-row-center" target="_blank" [href]="getWhatsappRedirectUrl()">
         <p class="font17">Share</p>
     </a>
-    <a class="share-btn flex-row-center" target="_blank" (click)="incrementLike()">
+    <a class="share-btn flex-row-center" target="_blank" (click)="onLikeClicked()">
         <p class="font17">Like</p>
     </a>
     <a class="share-btn flex-row-center" target="_blank" (click)="onDeleteClicked()">

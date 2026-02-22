@@ -27,7 +27,7 @@ export class CategoryMenu {
     if (eventType === 'on' && !this.filterList().includes(filterName)) {
       this.filterList.update(arr => [...arr, filterName]);
     }
-    if (eventType === 'off' && this.filterList().includes(filterName)) {
+    if (eventType === 'off') {
       this.filterList.update(arr => arr.filter(x => x !== filterName));
     }
 

@@ -3,6 +3,8 @@ import { Navbar } from './components/navbar/navbar';
 import { CategoryMenu } from "./components/category-menu/category-menu";
 import { ProductList } from "./components/product-list/product-list";
 import { ProductService } from './services/product-service';
+import { StorageService } from './services/storage-service';
+import { Product } from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +15,22 @@ import { ProductService } from './services/product-service';
 
 export class App {
   protected readonly title = signal('online-store');
-  service: ProductService = inject(ProductService);
 
-  activeProducts = this.service.activeProducts;
+  productService: ProductService = inject(ProductService);
+  storageService: StorageService = inject(StorageService);
 
   filterProduct(filters: string[]) {
-    this.service.filterProducts(filters);
+    this.productService.filterProducts(filters);
   }
 
-  deleteProduct(productId: number) {
-    this.service.deleteProduct(productId);
+  likeProduct(productInstance: Product) {
+    this.productService.likeProduct(productInstance);
   }
+
+  deleteProduct(productInstance: Product) {
+    this.storageService.remove(productInstance);
+  }
+
+
 
 }

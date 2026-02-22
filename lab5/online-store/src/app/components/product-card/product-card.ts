@@ -1,5 +1,7 @@
-import { Component, input, signal, OnInit, output } from '@angular/core';
+import { Component, input, signal, OnInit, output, effect, computed, inject } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { StorageService } from '../../services/storage-service';
+import { ProductService } from '../../services/product-service';
 
 @Component({
   selector: 'app-product-card',
@@ -7,20 +9,24 @@ import { Product } from '../../models/product.model';
   templateUrl: `./product-card.html`,
   styleUrl: `./product-card.css`,
 })
-export class ProductCard implements OnInit {
+export class ProductCard {
   product = input.required<Product>();
 
+  productService = inject(ProductService);
+
+
   currentImageId = signal(0);
-  likeCount = signal<number>(0);
 
-  deleteClicked = output<number>();
+  deleteClicked = output<Product>();
+  likeClicked = output<Product>();
 
-  ngOnInit() {
-    this.likeCount.set(this.product().likes);
-  }
 
   onDeleteClicked() {
-    this.deleteClicked.emit(this.product().id);
+    this.deleteClicked.emit(this.product());
+  }
+
+  onLikeClicked() {
+    this.likeClicked.emit(this.product());
   }
 
   changeImage() {
@@ -32,12 +38,15 @@ export class ProductCard implements OnInit {
   }
 
 
-  incrementLike() {
-    this.likeCount.update(val => val + 1);
-  }
-
   getWhatsappRedirectUrl() {
     return "https://wa.me/?text=Check out this product: " + this.product().link;
+  }
+
+
+  secondaryImageId = 0;
+  getUniqueId() {
+    this.secondaryImageId += 1;
+    return this.secondaryImageId;
   }
 
 }
