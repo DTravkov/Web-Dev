@@ -15,6 +15,12 @@ export class ProductCard {
 
   currentImageId = signal(0);
 
+  likeTrigger = signal(0);
+  likeCount = computed(() => {
+    this.likeTrigger();
+    return this.productService.getLikesInfo(this.product());
+  })
+
   deleteClicked = output<Product>();
   likeClicked = output<Product>();
 
@@ -25,6 +31,7 @@ export class ProductCard {
 
   onLikeClicked() {
     this.likeClicked.emit(this.product());
+    this.likeTrigger.update(value => value + 1);
   }
 
   changeImage() {

@@ -1,11 +1,11 @@
-<app-category-menu (filtersChanged)="filterProduct($event)"></app-category-menu>
+<app-category-menu (filtersChanged)="filterProducts($event)"></app-category-menu>
 
 <div class="outer-margin">
     <div class="flex-row-center-wrapped">
 
-        @for (p of productList(); track p.id){
-        @if(p.visible){
-        <app-product-card [product]="p" (deleteClicked)="deleteProduct($event)"
+        @for (productInstance of productList(); track productInstance.id){
+        @if(productInstance.visible){
+        <app-product-card [product]="productInstance" (deleteClicked)="deleteProduct($event)"
             (likeClicked)="likeProduct($event)"></app-product-card>
         }
         }

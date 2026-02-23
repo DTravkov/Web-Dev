@@ -8,7 +8,7 @@ import { PRODUCTS } from '../../assets/products';
 
 
 export class StorageService {
-  private rawProductList = signal<Product[]>(this.load());
+  rawProductList = signal<Product[]>(this.load());
 
   load() {
     const data = localStorage.getItem('productList');
@@ -23,7 +23,7 @@ export class StorageService {
   }
 
   restoreDefaults() {
-    this.rawProductList.set([...PRODUCTS]);
+    this.rawProductList.set(PRODUCTS);
     this.save();
   }
 

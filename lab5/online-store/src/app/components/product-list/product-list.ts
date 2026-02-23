@@ -1,6 +1,5 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
-import { PRODUCTS } from '../../../assets/products';
 import { Product } from '../../models/product.model';
 import { StorageService } from '../../services/storage-service';
 import { ProductService } from '../../services/product-service';
@@ -18,10 +17,7 @@ export class ProductList {
 
   productList = this.productService.getProductListSignal();
 
-  deleteProductForward = output<Product>();
-  likeProductForward = output<Product>();
-
-  filterProduct(filters: string[]) {
+  filterProducts(filters: string[]) {
     this.productService.filterProducts(filters);
   }
 
@@ -30,7 +26,7 @@ export class ProductList {
   }
 
   deleteProduct(productInstance: Product) {
-    this.storageService.remove(productInstance);
+    this.productService.deleteProduct(productInstance);
   }
 
 }

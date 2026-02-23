@@ -13,30 +13,27 @@ export class ProductService {
 
   activeFilters = signal<string[]>([]);
 
-  rawProductListSignal: Signal<Product[]> = this.storageService.getRawProductListSignal();
+  rawProductListSignal = this.storageService.getRawProductListSignal();
 
-  productList = computed(() =>
+  filteredProductList = computed(() =>
     this.rawProductListSignal().filter(
       prod => this.activeFilters().every(filt => Object.values(prod.category).includes(filt)))
   );
 
   getProductListSignal() {
-    return this.productList;
+    return this.filteredProductList;
   }
+
 
   filterProducts(newFilters: string[]) {
     this.activeFilters.set(newFilters);
   }
 
   likeProduct(productInstance: Product) {
-    const list = this.rawProductListSignal();
-
-    const id = list.findIndex(prod => prod.id === productInstance.id);
-
-    const entry = list[id];
-    list[id] = { ...entry, likes: entry.likes + 1 };
-    this.storageService.update(list);
-
+    this.rawProductListSignal.update(arr => {
+      return arr.map(prod => prod.id === productInstance.id ? { ...prod, likes: prod.likes + 1 } : prod);
+    })
+    this.storageService.save();
   }
 
   getLikesInfo(productInstance: Product) {
@@ -45,10 +42,8 @@ export class ProductService {
     return list[id].likes;
   }
 
-  deleteProduct(productId: number) {
-    this.storageService.update(
-      this.productList().filter(prod => prod.id !== productId)
-    );
+  deleteProduct(productInstance: Product) {
+    this.storageService.remove(productInstance);
   }
 
 
