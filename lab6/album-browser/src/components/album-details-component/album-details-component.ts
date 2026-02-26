@@ -26,7 +26,7 @@ export class AlbumDetailsComponent implements OnInit {
     this.router.navigate(['/albums', this.id, 'photos']);
   }
   goBack() {
-    this.router.navigate(['/albums']);
+    window.history.back();
   }
 
 }
