@@ -1,0 +1,6 @@
+<nav class="row-center">
+    @for(btn of buttons; track $index){
+    <button class="nav-btn" routerLinkActive="nav-btn-selected" [routerLink]="btn.path"
+        [routerLinkActiveOptions]="{ exact: true }"> {{btn.name}}</button>
+    }
+</nav>

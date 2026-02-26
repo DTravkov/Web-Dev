@@ -1,0 +1,12 @@
+<div class="col-center">
+    <button class="nav-btn p16 m16" (click)="goBack()"><strong>Back</strong></button>
+</div>
+
+<div class="row-center">
+    @for(photo of albumState.photosList(); track photo.id){
+    <div class="img-container col-center p16 m8">
+        <img [src]="'https://picsum.photos/600/400?random=' + photo.id" [alt]="photo.title">
+        <p>{{ photo.title }}</p>
+    </div>
+    }
+</div>

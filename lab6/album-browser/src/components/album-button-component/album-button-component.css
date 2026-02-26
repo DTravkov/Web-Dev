@@ -1,0 +1,14 @@
+.album-btn {
+    padding: 12px 16px;
+    margin: 12px 16px;
+    box-shadow: 3px 6px 0px black;
+    background-color: rgb(245, 238, 220);
+}
+
+
+.album-btn * {
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
