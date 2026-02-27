@@ -77,6 +77,20 @@ body {
     margin: 16px;
 }
 
+.m32 {
+    margin: 32px;
+}
+
+.m64 {
+    margin: 64px;
+}
+
+.m64 {
+    margin: 128px;
+}
+
+
+
 
 .p2 {
     padding: 2px;

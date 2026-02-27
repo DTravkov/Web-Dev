@@ -2,13 +2,20 @@
 
     <div class="card col-center">
         <h2 class="m16">This is album with ID : {{ id }}</h2>
+        @if(isEditing() === false){
         <h2 class="m16">Title : {{ albumState.selectedAlbum()?.title }}</h2>
+        }
+        @else{
+        <h2 class="m16">Title : <input type="text" [(ngModel)]="editFormValue"></h2>
+        }
     </div>
 
 </div>
 
 <div class="col-center">
     <button class="nav-btn p16 m4" (click)="goToPhotos()">Go check the photos!</button>
+    <button class="nav-btn p16 m4" (click)="toggleEditAlbumName()">Edit</button>
+    <button class="nav-btn p16 m4" (click)="deleteAlbum()">Delete this album</button>
 </div>
 
 <div class="col-center">
