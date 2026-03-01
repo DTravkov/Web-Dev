@@ -3,7 +3,7 @@
     <div class="card col-center">
         <h2 class="m16">This is album with ID : {{ id }}</h2>
         @if(isEditing() === false){
-        <h2 class="m16">Title : {{ albumState.selectedAlbum()?.title }}</h2>
+        <h2 class="m16">Title : {{ this.albumState.getAlbumFromId(id)!.title }}</h2>
         }
         @else{
         <h2 class="m16">Title : <input type="text" [(ngModel)]="editFormValue"></h2>

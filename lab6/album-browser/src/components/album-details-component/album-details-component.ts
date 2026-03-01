@@ -27,6 +27,7 @@ export class AlbumDetailsComponent implements OnInit {
   goToPhotos() {
     this.router.navigate(['/albums', this.id, 'photos']);
   }
+
   toggleEditAlbumName() {
     if (this.isEditing() === true) this.albumState.editSelected({ title: this.editFormValue });
     this.isEditing.set(!this.isEditing());

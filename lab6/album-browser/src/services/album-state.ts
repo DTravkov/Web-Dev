@@ -1,6 +1,6 @@
 import { effect, inject, Injectable, input, signal } from '@angular/core';
 import { Album } from '../models/album';
-import { AlbumService } from './album-service';
+import { AlbumService } from './http-album-service';
 import { Photo } from '../models/photo';
 import { finalize } from 'rxjs';
 
@@ -18,6 +18,9 @@ export class AlbumState {
 
   isFetchingData = signal<boolean>(false);
 
+  newTitles = signal<Record<number, string>>({});
+  deletedIds = signal<number[]>([]);
+
   constructor() {
     this.isFetchingData.set(false);
     effect(() => {
@@ -28,6 +31,18 @@ export class AlbumState {
         this.pendingId = null;
       }
     });
+  }
+
+
+  getAlbumFromId(id: number): Album | null {
+    if (this.deletedIds().includes(id)) return null;
+    const album = this.albumList().find(album => album.id === id)!;
+    album.title = this.getTitle(album.id);
+    return album;
+  }
+
+  getTitle(id: number) {
+    return this.newTitles()[id] ?? this.albumList().find(album => album.id == id)!.title;
   }
 
   refresh() {
@@ -61,11 +76,12 @@ export class AlbumState {
       .subscribe({
         next: response => {
           console.log("PATCH " + response.status);
+          if (newAlbum.title) this.newTitles.set({ ...this.newTitles(), [newAlbum.id]: newAlbum.title });
           this.selectedAlbum.set(newAlbum);
         },
         error: err => {
           console.log(err);
-          alert("Error while changing title! Try again! " + err);
+          alert("Error while patching data! Try again! " + err);
         }
       });
   }
@@ -80,6 +96,7 @@ export class AlbumState {
       .subscribe({
         next: response => {
           console.log("DELETE " + response.status);
+          this.deletedIds.set([...this.deletedIds(), this.selectedAlbum()!.id]);
           this.selectedAlbum.set(null);
           window.history.back();
         },

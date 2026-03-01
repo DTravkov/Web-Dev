@@ -1,5 +1,9 @@
 <div class="row-center">
     @for(album of albumState.albumList(); track album.id){
-    <app-album-button-component [albumData]="album"></app-album-button-component>
+    @if(albumState.getAlbumFromId(album.id)){
+    <app-album-button-component [albumData]="this.albumState.getAlbumFromId(album.id)!"></app-album-button-component>
+    }
+
+
     }
 </div>
