@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Product, ProductCategory
 
 
+
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -10,7 +11,7 @@ class ProductSerializer(serializers.ModelSerializer):
         if value < 0:
             raise serializers.ValidationError("Price must be positive")
         return value
-    
+
 
 class ProductCategorySerializer(serializers.ModelSerializer):
     class Meta: 

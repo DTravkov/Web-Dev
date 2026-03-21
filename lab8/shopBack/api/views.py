@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework.status import *
 
 from .serializers import ProductCategorySerializer, ProductSerializer
 from .models import Product, ProductCategory
@@ -29,17 +29,15 @@ class BaseManyView(BaseView):
         entry_list = self.model.objects.all()
         serializer = self.serializer_class(entry_list, many=True)
 
-        return ResponseTemplates.ok(data=serializer.data)
+        return Response(serializer.data,status=HTTP_200_OK)
     
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
 
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
-        else:
-            return ResponseTemplates.bad_request(errors=serializer.errors)
 
-        return ResponseTemplates.ok(data=[{"id" : serializer.data.get("id")}])
+        return Response({"id" : serializer.data.get("id")}, status=HTTP_200_OK)
 
 
 class BaseSingleView(BaseView):
@@ -47,34 +45,34 @@ class BaseSingleView(BaseView):
         entry = self.fetch_data(id)
 
         if not entry:
-            return ResponseTemplates.not_found()
+            return Response({"details" : "Resource is not found"}, status=HTTP_404_NOT_FOUND)
         
         serializer = self.serializer_class(entry)
-        return ResponseTemplates.ok(data=[serializer.data])
+        return Response(serializer.data, status=HTTP_200_OK)
     
     def put(self,request, id):
         entry = self.fetch_data(id)
 
         if not entry:
-            return ResponseTemplates.not_found()
+            return Response({"details" : "Resource is not found"}, status=HTTP_404_NOT_FOUND)
         
         serializer = self.serializer_class(entry, data=request.data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
         else:
-            return ResponseTemplates.bad_request(errors=serializer.errors)
-        return ResponseTemplates.ok(data=[{"id" : serializer.data.get("id")}])
+            return Response({"details" : "Not appropriate request.", "errors" : serializer.errors}, status=HTTP_400_BAD_REQUEST)
+        return Response({"id" : serializer.data.get("id")}, status=HTTP_200_OK)
         
     
     def delete(self, request, id):
         entry = self.fetch_data(id)
 
         if not entry:
-            return ResponseTemplates.not_found()
+            return Response({"details" : "Resource is not found"}, status=HTTP_404_NOT_FOUND)
         
         entry.delete()
-        return ResponseTemplates.no_content()
+        return Response({"details" : "No content"}, status=HTTP_204_NO_CONTENT)
 
 
 class SingleProductView(BaseSingleView):
