@@ -11,6 +11,7 @@ class ProductSerializer(serializers.ModelSerializer):
         if value < 0:
             raise serializers.ValidationError("Price must be positive")
         return value
+    
 
 
 class ProductCategorySerializer(serializers.ModelSerializer):

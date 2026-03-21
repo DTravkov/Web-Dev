@@ -5,7 +5,6 @@ from rest_framework.status import *
 
 from .serializers import ProductCategorySerializer, ProductSerializer
 from .models import Product, ProductCategory
-from .utils import ResponseTemplates
 
 
 
