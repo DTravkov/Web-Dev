@@ -4,7 +4,7 @@ from .utils import get_default_category
 
 
 class ProductCategory(models.Model):
-    name = models.CharField(max_length=150, unique=True)
+    name = models.CharField(max_length=150, unique=True, null=False)
 
     def __str__(self):
         return self.name
