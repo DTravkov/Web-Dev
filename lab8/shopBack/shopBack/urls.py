@@ -18,7 +18,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from rest_framework import routers
+from auth.views import AuthViewSet
+
+auth_router = routers.SimpleRouter()
+auth_router.register('auth', AuthViewSet, basename='auth')
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("api.urls"))
 ]
+
+urlpatterns += auth_router.urls
