@@ -17,7 +17,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class ProductCategorySerializer(serializers.ModelSerializer):
     class Meta: 
         model = ProductCategory
-        fields = ('name')
+        fields = ('id','name')
     def validate_name(self, value:str):
         if not value or value.strip() == "":
             raise serializers.ValidationError("Category name can not be empty")
