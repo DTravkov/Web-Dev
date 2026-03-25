@@ -1,0 +1,1 @@
+yeah, i had absolutely nothing to waste my spare time on holidays, so here it goes : jwt auth service, implemented with drf simple_jwt library.
