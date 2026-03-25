@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.status import *
 
@@ -90,3 +91,9 @@ class SingleProductCategoryView(BaseSingleView):
 class ManyProductCategoryView(BaseManyView):
     model = ProductCategory
     serializer_class = ProductCategorySerializer
+
+@api_view(['GET'])
+def products_by_category(self, id):
+    products = Product.objects.filter(category=int(id))
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data, status=HTTP_200_OK)
