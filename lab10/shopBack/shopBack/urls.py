@@ -16,16 +16,24 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import include, path
+from rest_framework import routers
 
 # imported from __init__ fiel
 from api.views import ProductDetailAPIView, ProductListAPIView, CategoryListAPIView, CategoryDetailAPIView
+
+from auth.views import AuthViewSet
+
+auth_router = routers.SimpleRouter()
+auth_router.register('auth', AuthViewSet, basename='auth')
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/products/", ProductListAPIView.as_view()),
     path("api/products/<int:product_id>/", ProductDetailAPIView.as_view()),
     path("api/categories/", CategoryListAPIView.as_view()),
-    path("api/categories/<int:category_id>/", CategoryDetailAPIView.as_view()),      
+    path("api/categories/<int:category_id>/", CategoryDetailAPIView.as_view()),
 ]
+
+urlpatterns += auth_router.urls
 

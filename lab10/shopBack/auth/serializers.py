@@ -1,7 +1,6 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-
-
+from django.contrib.auth import password_validation
 
 from rest_framework import serializers
 from rest_framework_simplejwt.exceptions import TokenError
@@ -13,17 +12,13 @@ class SignUpSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'token')
+        fields = ('username', 'password')
 
-    token = serializers.SerializerMethodField()
     password = serializers.CharField(write_only=True)
 
-    def get_token(self, user):
-        refresh = RefreshToken.for_user(user)
-        return {
-            "refresh" : str(refresh),
-            "access" : str(refresh.access_token)
-        }
+    def validate_password(self, value):
+        password_validation.validate_password(value)
+        return value
 
     def create(self, validated_data):
         return User.objects.create_user(
@@ -46,30 +41,12 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("This account is not active.")
         
         attrs['user'] = user
-
-        try:
-            refresh = RefreshToken.for_user(user)
-            attrs['refresh'] = refresh
-            attrs['access'] = refresh.access_token
-        except Exception as e:
-            raise serializers.ValidationError({"detail": "Login error."})
         
         return attrs
 
 class LogoutSerializer(serializers.Serializer):
     
     refresh = serializers.CharField(required=True)
-
-    def validate(self, attrs):
-        try:
-            token = RefreshToken(attrs.get('refresh'))
-            if str(token.get('user_id')) != str(self.context['request'].user.id):
-                print(token.get('user_id'), self.context['request'].user.id)
-                raise serializers.ValidationError("Token user_id mismatch.")
-            token.blacklist()
-            return attrs
-        except TokenError:
-            raise serializers.ValidationError("Invalid/blacklisted logout token provided.")
 
 class CustomRefreshSerializer(TokenRefreshSerializer):
     def validate(self, attrs):

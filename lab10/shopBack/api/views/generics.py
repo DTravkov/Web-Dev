@@ -9,6 +9,10 @@ class ProductListAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
+    def list(self, request, *args, **kwargs):
+        print(request.user, request.auth)
+        return super().list(self, request, *args, **kwargs)
+
 class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

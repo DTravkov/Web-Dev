@@ -1,9 +1,14 @@
 from rest_framework import status, serializers
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.response import Response
-from rest_framework.decorators import action, permission_classes, api_view
+from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.exceptions import APIException
+
+from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework_simplejwt.exceptions import TokenError
+
 from .serializers import LoginSerializer, LogoutSerializer, SignUpSerializer, CustomRefreshSerializer, CheckSerializer
 
 
@@ -34,6 +39,13 @@ class AuthViewSet(GenericViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
+        try:
+            token = RefreshToken(serializer.validated_data.get('refresh', None))
+            token.blacklist()
+        except TokenError:
+            raise APIException("Invalid token provided", code=status.HTTP_401_UNAUTHORIZED)
+
+
         return Response({"detail" : "Successful logout"}, status=status.HTTP_200_OK)
     
 
@@ -42,19 +54,25 @@ class AuthViewSet(GenericViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        refresh_token = serializer.validated_data.get('refresh')
-        access_token = serializer.validated_data.get('access')
-        return Response( { "refresh" : str(refresh_token),
-                           "access" : str(access_token) }, status=status.HTTP_200_OK)
+        refresh = RefreshToken.for_user(serializer.validated_data['user'])
+        access = refresh.access_token
+
+        return Response( { "refresh" : str(refresh),
+                           "access" : str(access) }, status=status.HTTP_200_OK)
     
 
     @action(detail=False, methods=['POST'])
     def signup(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+
+        user = serializer.save()
         
-        serializer.save()
-        return Response({'detail' : "Signed up successfully."}, status=status.HTTP_200_OK)
+        refresh = RefreshToken.for_user(user)
+        access = refresh.access_token
+
+        return Response( { "refresh" : str(refresh),
+                           "access" : str(access) }, status=status.HTTP_200_OK)
     
     @action(detail=False, methods=['POST'])
     def refresh(self, request):

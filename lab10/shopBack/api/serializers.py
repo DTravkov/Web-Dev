@@ -34,7 +34,6 @@ class CategorySerializer(serializers.ModelSerializer):
         read_only_fields = ['id']
     
     def validate_name(self, value:str):
-        print("name validation")
         if not value or value.strip() == "":
             raise serializers.ValidationError("Category name can not be empty")
         if value.isdigit():
